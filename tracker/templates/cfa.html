@@ -1,0 +1,171 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+
+
+<!-- Competition Section -->
+    <section id="main-page" class="p-4 mt-[80px] bg-white">
+        <div class="flex flex-col items-center mx-40 mt-2">
+
+            <!-- Titles -->
+            <div>
+                <h1 class="text-4xl font-bold text-center mb-2">CFA Research Competition</h1>
+                <hr class="border-t-2 border-goldBackground mb-6 w-full">
+            </div>
+
+            <!-- Main Text + Picture -->
+            <div class="flex flex-col items-center">
+                <p class="text-center text-lg leading-normal mb-2">
+                    The Alfred University Student-Managed Investment Fund (SMIF) is proud to participate in the annual CFA Institute Research Challenge, a global equity research competition that tests the analytical, valuation, report writing, and presentation skills of university students.
+                </p>
+
+                <p class="text-center text-lg leading-normal mb-6">
+                    Teams of 3–5 students will prepare a detailed equity research report and present their investment recommendation to a panel of industry experts. The competition begins in the fall with local-level contests and advances through regional and global rounds held in the spring.
+                </p>
+
+                <img src="{% static 'tracker/images/cfaimage.jpg'%}" alt="" class="w-full">
+
+                <p class="text-center text-lg leading-normal mt-6 mb-2">
+                    Everyone is invited to attend the regional final presentation round (Zoom link) and support Alfred University’s SMIF team as they showcase their research and analysis to CFA charterholders and leading professionals in the finance industry. Event details and times will be shared closer to the date.                </p>
+                </p>
+
+            </div>
+
+            <!-- Timeline -->
+            <div class="mt-2 flex flex-col self-start w-full overflow-x-hidden">
+                <div class="w-fit">
+                    <h2 class="text-2xl font-bold text-left">Timeline</h2>
+                    <hr class="border-t-2 border-black mb-3 w-full">
+                </div>
+                <ul class="list-disc text-md leading-normal space-y-2 mb-8">
+                    <li class="list-none font-bold">September 2025 – Registration Opens</li>
+                    <li class="ml-6">Teams of 3–5 students are formed and registered through Alfred University’s SMIF faculty advisor.</li>
+                    <li class="ml-6">CFA Institute provides this year’s subject company for analysis.</li>
+
+                    <li class="list-none font-bold">October 2025 – Kickoff & Company Presentation</li>
+                    <li class="ml-6">Subject company presents to participating teams during a kickoff meeting hosted by the CFA Society.</li>
+                    <li class="ml-6">Teams begin financial analysis and research.</li>
+
+                    <li class="list-none font-bold">December 2025 – Research Report Submission</li>
+                    <li class="ml-6">Final written equity research reports are submitted to judges for evaluation. This typically occurs by mid-December.</li>
+
+                    <li class="list-none font-bold">January 2026 – Local Finals (Virtual or In-Person)</li>
+                    <li class="ml-6">Top-scoring teams from the report round are invited to present live in front of a panel of CFA charterholders and investment professionals.</li>
+                    <li class="ml-6">Winner of the local competition advances to the sub-regional round.</li>
+
+                    <li class="list-none font-bold">February–March 2026 – Sub-Regional and Regional Rounds</li>
+                    <li class="ml-6">Winning teams compete virtually in sub-regional matches, followed by the Americas Regional Final.</li>
+
+                    <li class="list-none font-bold">April 2026 – Global Final</li>
+                    <li class="ml-6">Regional winners from the Americas, EMEA, and Asia Pacific compete in the Global Final hosted by CFA Institute.</li>
+                    <li class="ml-6">Winning team is crowned CFA Institute Research Challenge Global Champion.</li>
+                </ul>
+            </div>
+
+
+            <!-- Prizes, Rules, Presentation -->
+             <div class="mt-2 flex flex-row self-start justify-between">
+                <div class="flex flex-col flex-1">
+                    
+                    <!-- Prize Pool -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Prize Pool:</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            The CFA Institute Research Challenge does not offer monetary prizes. <br>
+                            Instead, teams compete for recognition at local, regional, and global levels. <br><br>
+
+                            Advancing teams receive:<br>
+                            • Official CFA Institute certificates and honors<br>
+                            • Opportunities to present to leading industry professionals<br>
+                            • Visibility across CFA Institute platforms and media<br>
+                            • In some cases, CFA exam scholarships from local societies
+                        </p>
+                    </div>
+
+                    <!-- Superlatives -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Superlatives:</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            There are no official superlative categories in the CFA Institute Research Challenge. <br>
+                            However, participants may receive informal recognition for outstanding work from local CFA societies or judges. <br><br>
+
+                            Examples of informal awards may include:<br>
+                            • Best Equity Report<br>
+                            • Most Professional Presentation<br>
+                            • Outstanding Individual Speaker
+                        </p>
+                    </div>
+
+                    <!-- Slides and Presentation -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Slides and Presentation Guidelines</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            Each team must present an in-depth equity research report and investment recommendation on the subject company assigned by CFA Institute. <br><br>
+
+                            Presentation Guidelines:<br>
+                            • Presentation Length: 10 minutes<br>
+                            • Followed by a 10-minute Q&A session with the judges<br>
+                            • Format: PowerPoint or PDF slide deck<br>
+                            • Slides must reflect the team’s own analysis and cannot exceed 10 content slides (excluding appendix and title slide)<br><br>
+
+                            Required Components:<br>
+                            • Company Overview & Business Model<br>
+                            • Industry Position & Competitive Landscape<br>
+                            • Investment Summary & Thesis<br>
+                            • Valuation (DCF, comparables, or other justified methods)<br>
+                            • Key Risks and Catalysts<br><br>
+
+                            All team members must contribute to the presentation. No outside assistance is permitted after the report submission deadline. For full details, refer to the CFA Institute Research Challenge official rules and scoring rubric.
+                        </p>
+                    </div>
+
+
+                    
+
+                </div>
+
+                <!-- Rules Preview/Link -->
+                <div class="flex flex-col flex-1">
+                    <a href="https://www.cfainstitute.org/sites/default/files/-/media/documents/support/research-challenge/challenge/research-challenge-official-rules.pdf">
+                        <img src="{% static 'tracker/images/cfa_preview.png'%}" class="w-full max-w-md" alt="GAME Forum Preview">
+                    </a>
+                    <p class="text-md font-normal leading-normal mt-1 text-center">Click to view full rulebook.</p>
+
+                    <div class="flex justify-center mt-8">
+                        <button id="applyBtn" class=" px-6 py-2 bg-purpleBackground text-white rounded transition-colors duration-150 ease-in hover:bg-textBlack" onclick="toggleModal('competitionModal')">
+                            Apply Now!
+                        </button>
+                    </div>
+
+
+                </div>
+
+             </div>
+
+
+
+        </div>
+
+
+        
+
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}

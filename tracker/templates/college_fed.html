@@ -1,0 +1,170 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <!-- Competition Section -->
+    <section id="main-page" class="p-4 mt-[80px] bg-white">
+        <div class="flex flex-col items-center mx-40 mt-2">
+
+            <!-- Titles -->
+            <div>
+                <h1 class="text-4xl font-bold text-center mb-2">College Fed Challenge</h1>
+                <hr class="border-t-2 border-goldBackground mb-6 w-full">
+            </div>
+
+            <!-- Main Text + Picture -->
+            <div class="flex flex-col items-center">
+                <p class="text-center text-lg leading-normal mb-2">
+                    The Alfred University Student-Managed Investment Fund (“SMIF”) is proud to participate in the College Fed Challenge, a prestigious national competition hosted by the Federal Reserve System that promotes understanding of the U.S. economy, monetary policy, and the role of the Federal Reserve.
+                </p>
+
+                <p class="text-center text-lg leading-normal mb-6">
+                    Each fall, student teams from across the country research current economic conditions, develop forecasts, and recommend monetary policy decisions in line with the Federal Open Market Committee (FOMC). Teams then present their analysis and policy recommendations to a panel of economists and Fed officials.
+                </p>
+
+                <img src="{% static 'tracker/images/college_fed_pic.jpg'%}" alt="" class="w-full">
+
+                <p class="text-center text-lg leading-normal mt-6 mb-2">
+                    Through this competition, SMIF members sharpen their economic research and public speaking skills while gaining a deeper understanding of real-world policymaking. Alfred University typically competes in the Liberty Street Division, with the opportunity to advance to district and national rounds.
+                </p>
+
+                <p class="text-center text-lg leading-normal mb-6">
+                    All are encouraged to watch the regional finalist presentations (Zoom link) and follow competition updates via the Federal Reserve Bank of New York’s website and social media channels.
+                </p>
+            </div>
+
+
+            <!-- Timeline -->
+            <div class="mt-2 flex flex-col self-start w-full overflow-x-hidden">
+                <div class="w-fit">
+                    <h2 class="text-2xl font-bold text-left">Timeline</h2>
+                    <hr class="border-t-2 border-black mb-3 w-full">
+                </div>
+                <ul class="list-disc text-md leading-normal space-y-2 mb-8">
+                    <li class="list-none font-bold">August 2025 – Team Formation</li>
+                    <li class="ml-6">Alfred University SMIF begins recruiting and forming its College Fed Challenge team for the fall competition cycle.</li>
+                    <li class="ml-6">Faculty advisors assist in assigning roles (researchers, presenters, writers, policy analysts).</li>
+
+                    <li class="list-none font-bold">September 2025 – Research and Strategy</li>
+                    <li class="ml-6">Teams begin monitoring Federal Reserve communications, analyzing macroeconomic data, and constructing policy recommendations.</li>
+                    <li class="ml-6">Regular meetings simulate FOMC-style discussion and speech delivery practice.</li>
+
+                    <li class="list-none font-bold">October 2025 – Submission Deadline</li>
+                    <li class="ml-6">Teams submit their video presentation to the Federal Reserve Bank of New York, typically by mid-October.</li>
+                    <li class="ml-6">Presentations are judged by Fed economists based on clarity, accuracy, teamwork, and policy justification.</li>
+
+                    <li class="list-none font-bold">Late October 2025 – Regional Results Announced</li>
+                    <li class="ml-6">Top-scoring teams from each regional division, including Liberty Street (NY Fed), are announced and advance to the semifinal round.</li>
+
+                    <li class="list-none font-bold">Early November 2025 – National Semifinals</li>
+                    <li class="ml-6">Advancing teams deliver a live virtual policy presentation and Q&amp;A to Federal Reserve officials from across the country.</li>
+
+                    <li class="list-none font-bold">Mid-November 2025 – National Finals</li>
+                    <li class="ml-6">Top teams from each region compete in the final round judged by a panel of senior Fed economists and policymakers.</li>
+                    <li class="ml-6">The national champion is recognized by the Federal Reserve Board and receives professional accolades.</li>
+                </ul>
+            </div>
+
+
+            <!-- Prizes, Rules, Presentation -->
+             <div class="mt-2 flex flex-row self-start justify-between">
+                <div class="flex flex-col flex-1">
+                    
+            <!-- Prize Pool -->
+            <div class="mb-4">
+                <div class="w-max">
+                    <h2 class="text-2xl font-bold text-left">Prize Pool:</h2>
+                    <hr class="border-t-2 border-black mb-1 w-full">
+                </div>
+                <p class="text-md font-normal leading-normal mb-1">
+                    The College Fed Challenge does not offer cash prizes. <br>
+                    Instead, teams compete for academic recognition and advancement through regional and national levels. <br><br>
+
+                    Honors include:<br>
+                    • Advancement to national rounds judged by Federal Reserve officials<br>
+                    • Recognition from the Federal Reserve Bank and published results<br>
+                    • Invitations to educational events and professional networking opportunities<br>
+                    • Certificates of participation for all teams
+                </p>
+            </div>
+
+            <!-- Superlatives -->
+            <div class="mb-4">
+                <div class="w-max">
+                    <h2 class="text-2xl font-bold text-left">Superlatives:</h2>
+                    <hr class="border-t-2 border-black mb-1 w-full">
+                </div>
+                <p class="text-md font-normal leading-normal mb-1">
+                    The College Fed Challenge does not include formal superlative awards. <br>
+                    However, individual judges or faculty advisors may recognize teams informally for excellence in specific areas such as:<br><br>
+
+                    • Most Accurate Economic Forecast<br>
+                    • Strongest Policy Justification<br>
+                    • Best Team Cohesion<br>
+                    • Outstanding Presentation Delivery
+                </p>
+            </div>
+
+            <!-- Slides and Presentation -->
+            <div class="mb-4">
+                <div class="w-max">
+                    <h2 class="text-2xl font-bold text-left">Slides and Presentation Guidelines</h2>
+                    <hr class="border-t-2 border-black mb-1 w-full">
+                </div>
+                <p class="text-md font-normal leading-normal mb-1">
+                    Each team is required to deliver a monetary policy briefing modeled after an official Federal Open Market Committee (FOMC) meeting. <br><br>
+
+                    Presentations must include:<br>
+                    • Current analysis of national economic conditions<br>
+                    • Key data on inflation, labor markets, GDP, and financial stability<br>
+                    • A well-supported recommendation for the federal funds rate<br>
+                    • Justification for the policy stance using data and central bank communication<br><br>
+
+                    Teams must submit a recorded 15-minute presentation for the preliminary round. Teams advancing to semifinals and finals will present live via Zoom, followed by a Q&amp;A session with Federal Reserve judges. Visuals (e.g., slides or charts) are encouraged but must be student-produced and clearly cited.
+                </p>
+            </div>
+
+
+                    
+
+                </div>
+
+                <!-- Rules Preview/Link -->
+                <div class="flex flex-col flex-1">
+                    <a href="https://www.federalreserve.gov/aboutthefed/educational-tools/fed-challenge-judges-instructions-rubric-score-sheet-web.pdf">
+                        <img src="{% static 'tracker/images/college_fed_rubric.png'%}" class="w-full max-w-md" alt="GAME Forum Preview">
+                    </a>
+                    <p class="text-md font-normal leading-normal mt-1 text-center">Click to view full rulebook.</p>
+
+                    <div class="flex justify-center mt-8">
+                        <button id="applyBtn" class=" px-6 py-2 bg-purpleBackground text-white rounded transition-colors duration-150 ease-in hover:bg-textBlack" onclick="toggleModal('competitionModal')">
+                            Apply Now!
+                        </button>
+                    </div>
+
+
+                </div>
+
+             </div>
+
+
+
+        </div>
+
+
+        
+
+        </div>
+    </section>
+
+        <!-- <div class="flex flex-col sm:flex-row justify-center gap-2"> added flex-col and sm:flex-row to put text boxes into a column on mobile -->
+
+
+    
+
+
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+
+    <!-- Competition Section -->
+    <section id="main-page" class="p-4 mt-[80px] bg-white">
+        <div class="flex flex-col items-center mx-40 mt-2">
+
+            <!-- Titles -->
+            <div>
+                <h1 class="text-4xl font-bold text-center mb-2">GAME Forum</h1>
+                <hr class="border-t-2 border-goldBackground mb-6 w-full">
+            </div>
+
+            <!-- Main Text + Picture -->
+            <div class="flex flex-col items-center">
+                <p class="text-center text-lg leading-normal mb-2">
+                    The Alfred University Student-Managed Investment Fund (“SMIF”) is proud to participate in the Quinnipiac Global Asset Management Education (“GAME”) Forum, one of the largest student-run financial conferences in the world. 
+                </p>
+
+                <p class="text-center text-lg leading-normal mb-6">
+                    Hosted annually in New York City, the GAME Forum brings together students, faculty, and professionals from across the globe for a dynamic two-day event focused on investment strategy, global markets, and portfolio management. 
+                </p>
+
+                <img src="{% static 'tracker/images/game_forum_pic.jpg' %}" alt="" class="w-full">
+
+                <p class="text-center text-lg leading-normal mt-6 mb-2">
+                    From April 3–4, 2025, attendees will engage with top industry leaders through keynote sessions, breakout discussions, and networking events. SMIF members will have the opportunity to represent Alfred University in this premier forum, gaining insights from professionals at the forefront of the financial industry.
+                </p>
+
+                <p class="text-center text-lg leading-normal mb-6">
+                    All are welcome to watch the livestreamed keynote sessions (Zoom link), and follow along with conference updates and speaker announcements at [GAME Forum website link].
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="mt-2 flex flex-col self-start w-full overflow-x-hidden">
+                <div class="w-fit">
+                    <h2 class="text-2xl font-bold text-left">Timeline</h2>
+                    <hr class="border-t-2 border-black mb-3 w-full">
+                </div>
+                <ul class="list-disc text-md leading-normal space-y-2">
+                    <li class="list-none font-bold">Fall 2025 – Event Launch</li>
+                    <li class="ml-6">Registration for GAME Forum XV opens, including the Global Portfolio Competition and portfolio poster session. </li>
+                    <li class="ml-6">Student teams (undergraduate and graduate) are invited to register and submit preliminary materials.</li>
+
+                    <li class="list-none font-bold">Winter 2026 – Portfolio Competition Submission Deadline</li>
+                    <li class="ml-6">Deadline for submitting poster outlines or preliminary portfolio submissions typically falls around early February (exact date TBD when registration opens).</li>
+
+                    <li class="list-none font-bold">Late February 2026 – Information Session (Zoom)</li>
+                    <li class="ml-6">Quinnipiac hosts a virtual info session to walk through event logistics, portfolio competition guidelines, poster expectations, and answer any participant questions.</li>
+                    
+                    <div>
+                        <li class="list-none font-bold">March 19–20, 2026 – GAME Forum XV (New York City)</li>
+                        <li class="ml-6 mb-2">Held at the New York Marriott Marquis or a comparable venue, the conference includes:</li>
+                        <li class="ml-6 list-none">
+                            <div>
+                                <div class="inline-block">
+                                    <p class="font-bold">Day 1 (March 19)</p>
+                                    <hr class="border-t border-black w-full">
+                                </div>
+                                <ul class="list-disc"> 
+                                    <li class="ml-6"> Morning registration & networking </li>
+                                    <li class="ml-6">Keynote panels on topics like asset allocation, FinTech, AI, crypto, and hedge funds</li>
+                                    <li class="ml-6">Breakout sessions and workshops (e.g., portfolio management, career panels, behavioral finance)</li>
+                                    <li class="ml-6">Career networking events featuring GAME alumni and company recruiters</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-8">
+                                <div class="inline-block">
+                                    <p class="font-bold">Day 2 (March 20)</p>
+                                    <hr class="border-t border-black w-full">
+                                </div>
+                                <ul class="list-disc"> 
+                                    <li class="ml-6"> Continued keynote sessions and specialized panels (options trading, leadership strategies, economy outlook) </li>
+                                    <li class="ml-6">Global Portfolio Competition & Poster Session: teams present tri-fold posters summarizing their real portfolios; judging and awards take place during the afternoon</li>
+                                    <li class="ml-6">Closing keynote panel and conference wrap-up</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+
+            
+               
+            </div>
+
+            <!-- Prizes, Rules, Presentation -->
+             <div class="mt-2 flex flex-row self-start justify-between">
+                <div class="flex flex-col flex-1">
+                    
+                    <!-- Prize Pool -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Prize Pool:</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            1st Place - $1000 <br>
+                            2nd Place - $500 <br>
+                            3rd Place - $300 <br>
+                            4th Place - $100 <br>
+                            5th Place - $50 <br>
+                        </p>
+                    </div>
+
+                    <!-- Superlatives -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Superlatives:</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            All semifinalist teams are eligible to win superlative prizes. <br> 
+                            Winners will be selected by the MIC in conjunctions with judges. <br><br>
+                            
+                            Best First Year Team - $125<br>
+                            Best Formatting - $125<br>
+                            Best Speaker - $125<br>
+                            Best Inter-school Team - $125<br>
+                        </p>
+                    </div>
+
+                    <!-- Slides and Presentation -->
+                    <div class="mb-4">
+                        <div class="w-max">
+                            <h2 class="text-2xl font-bold text-left">Slides and Presentation Guidelines</h2>
+                            <hr class="border-t-2 border-black mb-1 w-full">
+                        </div>
+                        <p class="text-md font-normal leading-normal mb-1">
+                            Each team is required to deliver a stock pitch—either long or short—on a publicly traded company from any industry. 
+                            The chosen company must have a market capitalization between US$1 billion and US$10 billion and a share price above US$5.00 (adjusted for exchange rates), 
+                            based on the closing price as of March 20th, 2025. The company may be listed on any global exchange.
+                            Pitch decks must be 15 slides or fewer, not including the title slide or appendix materials. The presentation must clearly address the following core components:
+
+                            • Company & Industry Overview
+
+                            • Investment Thesis
+
+                            • Financial Valuation
+
+                            • Risks & Catalysts
+
+                            Each team will be given 15 minutes to present, followed by a 10-minute Q&A session with a panel of judges. For detailed judging criteria and further competition rules, please refer to the official GAME Forum rulebook.
+                        </p>
+                    </div>
+
+                    
+
+                </div>
+
+                <!-- Rules Preview/Link -->
+                <div class="flex flex-col flex-1">
+                    <a href="https://qgame.qu.edu/globalassets/sub-sites/qgame/media/documents/2024-game-program.pdf">
+                        <img src="{% static 'tracker/images/GAME_forum_preview.png' %}" class="w-full max-w-md" alt="GAME Forum Preview">
+                    </a>
+                    <p class="text-md font-normal leading-normal mt-1 text-center">Click to view full rulebook.</p>
+
+                    <div class="flex justify-center mt-8">
+                        <button id="applyBtn" class=" px-6 py-2 bg-purpleBackground text-white rounded transition-colors duration-150 ease-in hover:bg-textBlack" onclick="toggleModal('competitionModal')">
+                            Apply Now!
+                        </button>
+                    </div>
+
+
+                </div>
+
+             </div>
+
+
+
+        </div>
+
+
+        
+
+        </div>
+    </section>
+
+        <!-- <div class="flex flex-col sm:flex-row justify-center gap-2"> added flex-col and sm:flex-row to put text boxes into a column on mobile -->
+
+
+
+
+
+
+{% endblock %}

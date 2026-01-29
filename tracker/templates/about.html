@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- About Us Content -->
+<section id="about-us" class="p-4 mt-[80px]">
+    <h2 class="text-3xl font-bold mb-10">About Us</h2>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mx-auto max-w-screen-xl mb-10">
+
+        <!-- Left Image -->
+        <div id="leftimage" class="w-full sm:w-1/2 flex justify-center">
+            <img src="{% static 'tracker/images/smif-competition.jpg'%}" alt="" class="w-full h-auto rounded-lg">
+        </div>
+
+        <!-- Right Text -->
+        <div id="righttext" class="w-full sm:w-1/2 flex flex-col justify-center">
+            
+            <h4 class="text-2xl font-bold mb-3">Mission</h4>
+            <hr class="border-t-2 border-goldBackground mb-3 w-full">
+            <p class="text-gray-700 text-lg leading-normal">
+                The Student Managed Investment Fund (SMIF) at Alfred University empowers students of all majors to collaboratively manage a $1 million+ portfolio with the goal of outperforming the S&P 500. 
+            </p>
+        </div>
+    </div>
+    
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mx-auto max-w-screen-xl mb-10">
+
+        <!-- Left Text -->
+        <div id="lefttext" class="order-2 sm:order-1 w-full sm:w-1/2 flex flex-col justify-center">
+            <h4 class="text-2xl font-bold mb-3">Open To All</h4>
+            <hr class="border-t-2 border-goldBackground mb-3 w-full">
+            <p class="text-gray-700 text-lg leading-normal">
+                    SMIF encourages any student with an interest in finance to get involved. 
+                    Members have the opportunity to pitch new stock ideas or recommend selling current holdings based on market analysis. 
+                    Students who complete FIN 205 and FIN 206 are eligible to take on leadership roles within the fund.
+            </p>
+        </div>
+        
+        <!-- Right Image -->
+        <div id="rightimage" class="order-1 sm:order-2 w-full sm:w-1/2 flex justify-center">
+            <img src="{% static 'tracker/images/smif_3_musketeers.jpg'%}" alt="" class="w-full h-auto rounded-lg">
+        </div>
+
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mx-auto max-w-screen-xl mb-10">
+
+        <!-- Left Image -->
+        <div id="leftimage" class="w-full sm:w-1/2 flex justify-center">
+            <img src="{% static 'tracker/images/smif-competition-2.jpg'%}" alt="" class="w-full h-auto rounded-lg">
+        </div>
+
+        <!-- Right Text -->
+        <div id="righttext" class="w-full sm:w-1/2 flex flex-col justify-center">
+            <h4 class="text-2xl font-bold mb-4">Competitions</h4>
+            <hr class="border-t-2 border-goldBackground mb-3 w-full">
+            <p class="text-gray-700 text-lg leading-normal">
+                We actively compete in prestigious national and international competitions that challenge our financial analysis and presentation skills. 
+                    These include the Global Asset Management Education (GAME) Forum, the CFA Research Challenge, and the College Fed Challenge. 
+                    If you're interested in joining our team, you can learn more and sign up in the section below!
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

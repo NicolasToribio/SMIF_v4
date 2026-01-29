@@ -1,0 +1,307 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+    <!-- Background image and filter -->
+    <div class="relative w-full h-[50vh] bg-cover bg-bottom mt-[80px]" style="background-image: url('{% static 'tracker/images/olinBetter.jpg' %}');">
+        <div class="absolute inset-0 bg-white/40"></div>
+        <div class="relative z-10 flex justify-center items-center h-full">
+            <!-- <div class="bg-white/50 rounded-md p-2.5"> -->
+                <img src="{% static 'tracker/images/alfredlogo.png'%}" alt="Logo" class="w-[900px] h-[300px] object-contain" />
+            <!-- </div> -->
+          </div>
+    </div>
+
+
+    <!-- Leaders -->
+    <section id="officers" class="p-4">
+        <h2 class="text-2xl font-bold mb-4">Officers</h2>
+        <div class="flex flex-wrap justify-center gap-8 mb-4">
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/maksym.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Maksym <br> Smirnov</h6>
+                <p class="text-gray-500 text-[15px] my-1">President</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/maksymka-smirnov/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+              <img src="{% static 'tracker/officers/chris.jpg'%}" 
+                   class="h-[80px] mx-auto" />
+              <h6 class="text-[20px] font-bold mt-2 mb-1">Christopher <br> Coyle</h6>
+              <p class="text-gray-500 text-[15px] my-1">Vice President</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/christopher-f-coyle/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+              <img src="{% static 'tracker/officers/artem.jpg'%}" 
+                   class="h-[80px] mx-auto" />
+              <h6 class="text-[20px] font-bold mt-2 mb-1">Artem <br> Kolisnychenko</h6>
+              <p class="text-gray-500 text-[15px] my-1">Treasurer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/artem-kolisnychenko/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+            <img src="{% static 'tracker/officers/andrii.jpg'%}" 
+                    class="h-[80px] mx-auto" />
+            <h6 class="text-[20px] font-bold mt-2 mb-1">Andrii <br> Maltsev</h6>
+            <p class="text-gray-500 text-[15px] my-1">Secretary</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/maltsevandrii/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Regular Officers -->
+        <div class="flex flex-wrap justify-center gap-8">
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/nicolas.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Nicolas <br> Toribio</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/nicolas-toribio" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/benjamin.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Benjamin <br> Klee</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/ben-klee/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/landon.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Landon <br> Berry</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/landon-berry-aa4641283/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/george.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">George <br> Fearon</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/george-fearon-123007325/" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/lisa.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Lisa <br> Thomas</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/lisaabgailthomas/o" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class="border border-gray-400 rounded-md text-center p-2 sm:p-4 w-[1in] sm:w-[2in] shadow-md text-[20px] relative">
+                <img src="{% static 'tracker/officers/omar.jpg'%}" 
+                        class="h-[80px] mx-auto" />
+                <h6 class="text-[20px] font-bold mt-2 mb-1">Omar <br> Allari</h6>
+                <p class="text-gray-500 text-[15px] my-1">Officer</p>
+
+                <div class="absolute top-1 right-1">
+                    <a href="https://www.linkedin.com/in/omar-allari-30a631294" target="_blank">
+                        <img src="{% static 'tracker/images/linkedinlogo.png'%}" class="h-[20px] mx-auto"alt="LinkedIn Logo">
+                    </a>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+
+
+    </section>
+
+
+   
+<!-- Splide Gallery -->
+<details open class="text-2xl font-bold mb-4 ml-4">
+    <summary>Gallery</summary>
+    <div id="carousel" class="flex flex-col justify-center items-center">
+        <div class="w-full max-w-2xl 2xl:max-w-3xl bg-stone-800 flex flex-col justify-center items-center mt-6 mb-2 pl-4 pr-4">
+            <!-- Main Carousel -->
+            <div id="main-carousel" class="splide w-full sm:w-2/3 max-w-3xl mt-10" aria-label="Main Image Gallery">
+                <!-- <div style="position: relative"> -->
+                <!-- </div> -->
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/maksym.jpg'%}" alt="Image 1">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/artem.jpg'%}" alt="Image 2">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/andrii.jpg'%}" alt="Image 3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/olinBetter.jpg'%}" alt="Image 4">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/smif_3_musketeers.jpg'%}" alt="Image 5">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/financepictureau.jpg'%}" alt="Image 6">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Thumbnail Carousel -->
+            <div id="thumbnail-carousel" class="splide relative mt-4 w-full sm:w-2/3 max-w-3xl mb-6"
+                aria-label="Thumbnail Navigation">
+                <div class="position: relative">
+                </div>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/maksym.jpg'%}" alt="Image 1">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/artem.jpg'%}" alt="Image 2">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/officers/andrii.jpg'%}" alt="Image 3">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/olinBetter.jpg'%}" alt="Image 4">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/smif_3_musketeers.jpg'%}" alt="Image 5">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="{% static 'tracker/images/financepictureau.jpg'%}" alt="Image 6">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</details>
+
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+        var main = new Splide( '#main-carousel', {
+            type      : 'slide',
+            rewind    : true,
+            pagination: false,
+            arrows    : false,
+            
+        } );
+
+
+        var thumbnails = new Splide( '#thumbnail-carousel', {
+            fixedWidth  : 100,
+            fixedHeight : 60,
+            gap         : 10,
+            rewind      : true,
+            pagination  : false,
+            focus       : 'center',
+            isNavigation: true,
+            classes: {
+                arrows: 'splide__arrows my-class-arrow',
+                arrow: 'splide__arrow my-class-arrow',
+                prev: 'splide__arrow--prev my-class-prev',
+                next: 'splide__arrow--next my-class-next',
+            },
+            breakpoints : {
+            600: {
+                fixedWidth : 60,
+                fixedHeight: 44,
+            },
+            },
+        } );
+
+
+        main.sync( thumbnails );
+        main.mount();
+        thumbnails.mount();
+        } );
+    </script>
+
+
+    <!-- Annual Report PDF -->
+    <section id="annual_report" class="p-4">
+        <details class="text-2xl font-bold">
+            <summary class="">Annual Report</summary>
+        <div class="flex flex-wrap justify-center relative" style="padding-top: 56.25%;"> <!-- 16:9 ratio padding-top -->
+            <iframe src="{% static 'tracker/pdf/smif_notes.pdf'%}" class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[85vw] h-full" frameborder="0"></iframe>
+        </div>
+        </details>
+        
+    </section>
+
+
+    <!-- Tracker -->
+    <section id="tracker" class="p-4">
+        <details open class="text-2xl font-bold mb-4">
+            <summary class="mb-4">Tracker</summary>
+                <div class="flex flex-wrap justify-center relative scale-[0.65] origin-top h-[585px]">
+                    <iframe src="{% static 'tracker/plots/portfolio_chart.html'%}" 
+                    loading="lazy"
+                    class="w-[900px] h-[900px] border-0">
+                    </iframe>
+                </div>
+        </details>
+    </section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,466 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AU SMIF</title>
+
+    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
+    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    purpleBrand: '#550D8A',
+                    goldBrand: '#F5AA01',
+                    purpleBackground: '#695981',
+                    goldBackground: '#d79133',
+                        }
+                    }
+                }
+            };
+    </script>
+
+<style>
+    .splide__slide {
+    opacity: 0.6;
+    }
+
+    .splide__slide.is-active {
+    opacity: 1;
+    }
+
+    /* .splide__slide img {
+    width: 100%;
+    height: auto;
+    } */
+
+    .splide__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .thumbnails {
+    display: flex;
+    margin: 1rem auto 0;
+    padding: 0;
+    justify-content: center;
+    }
+
+
+    .thumbnail {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    list-style: none;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    }
+
+
+    .thumbnail img {
+    width: 100%;
+    height: auto;
+    }
+
+    /* Force main carousel to be 16:9 */
+    #main-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* background-color: #1C1917; old background color*/
+    background-color: #292524; /* doesn't change anything, defaults to the color above, not sure why */
+    overflow: hidden;
+    }
+
+    /* Splide uses track and slide wrappers — this ensures full coverage */
+    #main-carousel .splide__track,
+    #main-carousel .splide__list,
+    #main-carousel .splide__slide {
+    height: 100%;
+    }
+
+    /* Display all images fully, even if portrait */
+    #main-carousel .splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Shows entire image inside the frame */
+    background-color: #1C1917; /* helps show "letterbox" if image is narrow/tall */
+    }
+
+    /* Custom classes for SplideJS arrows */
+    .my-class-arrow {
+        background-color: white;
+        color: black;
+        border-radius: 15px;
+    }
+
+    .my-class-prev {
+        background-color: white;
+        color: black;
+        border-radius: 15px;
+        
+        position: absolute;
+        left: -55px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .my-class-next {
+        background-color: whitesmoke;
+        color: black;
+        border-radius: 15px;
+
+        position: absolute;
+        right: -55px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body class="bg-gray-100 text-gray-900 overflow-x-hidden">  <!-- overflow-x-hidden to prevent horizontal scrolling -->
+
+   <!-- Navbar -->
+<div class="fixed top-0 left-0 right-0 z-[70] bg-white p-3 text-black shadow-lg flex flex-wrap items-center justify-between">
+  <a href="{% url 'home' %}">
+    <img src="{% static 'tracker/images/smiflogo.png' %}" height="150px" width="150px" alt="SMIF Logo">
+  </a>
+
+  <nav class="p-1 space-x-6 flex items-center">
+    <!-- Competitions Dropdown -->
+    <div class="relative group inline-block">
+      <div class="flex items-center space-x-1 cursor-pointer">
+        <a class="topmenu font-semibold menu-hover">Competitions</a>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </div>
+
+      <!-- Dropdown Menu -->
+      <div
+        class="invisible absolute z-50  w-32 flex-col bg-white py-1 px-4 text-gray-800 shadow-xl group-hover:visible rounded-lg">
+        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'game' %}">GAME</a>
+        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'cfa' %}">CFA</a>
+        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'college_fed' %}">College Fed</a>
+      </div>
+    </div>
+
+    <!-- Other Nav Items -->
+    <a class="topmenu font-semibold" href="{% url 'home' %}#tracker">Tracker</a>
+    <a class="topmenu font-semibold" href="{% url 'annual_report' %}">Annual Report</a>
+    <a class="topmenu font-semibold" href="{% url 'about' %}">About Us</a>
+    <a class="topmenu font-semibold" href="{% url 'home' %}#officers">Officers</a>
+  </nav>
+</div>
+
+
+{% block content %}
+{% endblock %}
+
+
+
+ <!-- Footer -->
+    <section id="footer" class="">
+        <div class="bg-purpleBackground pb-4 w-full "> <!-- previously had pb-8 -->
+            <div class="flex flex-col sm:flex-row justify-around mx-auto mx-w-screen-xl items-center pt-6 mb-6"> <!-- items-center or items-end to control vertical alignment-->
+                
+                <!-- Left -->
+                <div class="flex flex-col items-center sm:items-start w-[180px] sm:w-[220px] md:w-[260px]">
+                    <h2 class="text-4xl font-bold text-gray-100 mb-5 divide-y">
+                        Student <br> Managed <br> Investment <br> Fund
+                    </h2>
+                    <hr class="border-t-2 border-gray-300 mb-5 w-full"> <!-- Previously mb-3 -->
+
+                    <div class="flex flex-row justify-center gap-4">
+                        <a href="https://www.linkedin.com/in/maksymka-smirnov/" target="_blank">
+                            <img src="{% static 'tracker/images/linkedinlogowhite.png'%}" class="h-[30px] mx-auto"alt="LinkedIn Logo">
+                        </a>
+
+                        <a href="https://www.instagram.com/smifau/" target="_blank">
+                            <img src="{% static 'tracker/images/instagramlogowhite.png'%}" class="h-[30px] mx-auto"alt="LinkedIn Logo">
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Middle -->
+                <div class="w-[125px] sm:w-[150px] md:w-[200px]">
+                    <h3 class="text-2xl font-bold text-gray-100 text-center mb-1 ">Join Us!</h3>
+                    <hr class="flex-grow border-t-2 border-gray-300 mb-3 border-t-2">
+
+                    <form method="post" action="{% url 'contact' %}"  id="join_us_form">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="contact"> <!-- To tell django which form was just submitted -->
+                        
+                        {% comment %} Form validation feedback, copy/pasted from ChatGPT suggestion, test later {% endcomment %}
+                        {% if form.errors %}
+                            <div class="mb-2 text-red-400 text-sm">
+                                {% for field in form %}
+                                {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+
+                        <!-- Full Name -->
+                        <div class="mb-2">
+                            <label for="full_name" class="block text-md font-medium text-gray-200">Full Name:</label>
+                            <input type="text" id="full_name" name="full_name" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto shadow-lg">
+                        </div>
+
+                        <!-- School Email -->
+                        <div class="mb-2">
+                            <label for="au_email" class="block text-md font-medium text-gray-200">AU Email:</label>
+                            <input type="email" id="au_email" name="au_email" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto shadow-lg">
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-2">
+                            <label for="phone_num" class="block text-md font-medium text-gray-200">Phone Number:</label>
+                            <input type="tel" id="phone_num" name="phone_num" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto shadow-lg">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-center mt-4">
+                            <button type="submit" id="submitBtn" class="px-6 py-2 bg-goldBackground text-textBlack rounded transition-colors duration-150 ease-in hover:text-white">
+                                Submit
+                            </button>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+                <!-- Right -->
+                <div class="w-[180px] sm:w-[220px] md:w-[260px]">
+                    
+                    
+                    
+                    <p class="block text-lg text-gray-200 mb-2 text-right">Olin College of Business</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-right">1 Saxon Dr.</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-right">Alfred, New York</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-right">ms71@alfred.edu</p>
+                    <hr class="border-t-2 border-gray-300 mb-3 w-full"> <!-- Previously mb-3 -->
+                    <img src="{% static 'tracker/images/alfred-logo.svg' %}" alt="" height="250px" width="250px" class="mb-2 ml-auto">
+                    
+                    
+                </div>
+
+           
+                
+
+            </div>
+            <div class="pl-10">
+                
+                
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    
+<!-- Contact Submission Success Modal -->
+    <section>
+
+        <!-- Modal -->
+        <div id="contactSuccessModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-3 rounded-lg w-t sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 relative z-60 mt-16"> <!-- 'relative' added here -->
+                <!-- Modal header with close button positioned in top-right corner -->
+                <h2 class="text-xl font-semibold pb-4 flex justify-center">Successfully submitted contact!</h2>
+                <button onclick="toggleModal('contactSuccessModal')" class="text-gray-400 hover:text-gray-600 absolute top-4 right-4"> <!-- 'absolute', 'top-2', 'right-2' for positioning -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    {% if contact_submitted %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            toggleModal("contactSuccessModal");
+            });
+        </script>
+    {% endif %}
+
+
+
+
+<!-- Competition Application Modal -->
+    <!-- Modal -->
+    <div id="competitionModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-3 rounded-lg w-t sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 relative z-60 mt-16"> <!-- 'relative' added here -->
+            <!-- Modal header with close button positioned in top-right corner -->
+            <h2 class="text-xl font-semibold pb-4 flex justify-center">Competition Application</h2>
+            <button onclick="toggleModal('competitionModal')" class="text-gray-400 hover:text-gray-600 absolute top-4 right-4"> <!-- 'absolute', 'top-2', 'right-2' for positioning -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+    <form method="post" action="{% url 'competition_apply' %}">
+        {% csrf_token %}
+
+
+        <!-- Full Name -->
+        <div class="mb-4">
+            <label for="applicant_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name:</label>
+            <input type="text" id="applicant_name" name="full_name" required class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+            <input type="email" id="email" required name="email" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description:</label>
+            <textarea name="description" id="description" name="description" required class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded px-3 py-2 w-full mx-auto h-32 resize-none" placeholder="Your major, year, why you're interested in the competition, etc."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center mt-4">
+            <button type="submit" id="submitBtn" class="px-6 py-2 bg-goldBackground text-textBlack rounded transition-colors duration-150 ease-in hover:text-white">
+                Submit
+            </button>
+        </div>
+
+        <!-- Hidden Input Field: Specify which page the request came from so you know what competition the user is applying for -->
+            <input type="hidden" name="competition_type" value="{{ competition_type }}">
+
+    </form>
+
+
+            </div>
+        </div>
+
+
+
+<!-- Competition Application Success Modal -->
+    <section>
+
+        <!-- Modal -->
+        <div id="competitionSuccessModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-3 rounded-lg w-t sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 relative z-60 mt-16"> <!-- 'relative' added here -->
+                <!-- Modal header with close button positioned in top-right corner -->
+                <h2 class="text-xl font-semibold pb-1 pt-1 flex justify-center text-center">Application submitted successfully!</h2>
+                <button onclick="toggleModal('competitionSuccessModal')" class="text-gray-400 hover:text-gray-600 absolute top-4 right-4"> <!-- 'absolute', 'top-2', 'right-2' for positioning -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+<!-- Competition Application Failure Modal -->
+    <section>
+
+        <!-- Modal -->
+        <div id="competitionFailureModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-3 rounded-lg w-t sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 relative z-60 mt-16"> <!-- 'relative' added here -->
+                <!-- Modal header with close button positioned in top-right corner -->
+                <h2 class="text-xl font-semibold pb-1 pt-1 flex justify-center text-center">Application failed. <br> Please enter valid info and try again.</h2>
+                <button onclick="toggleModal('competitionFailureModal')" class="text-gray-400 hover:text-gray-600 absolute top-4 right-4"> <!-- 'absolute', 'top-2', 'right-2' for positioning -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    {% if competition_submitted %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            toggleModal("competitionSuccessModal");
+            });
+        </script>
+    {% endif %}
+
+
+    {% if competition_failed %}
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            toggleModal("competitionFailureModal");
+            });
+        </script>
+    {% endif %}
+
+
+<!-- JavaScript Toggle for Modals -->
+<script>
+    function toggleModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.toggle('hidden');
+    }
+</script>
+
+<!-- NEW: Close the application modal when form is submitted -->
+<script>
+    document.getElementById('competitionModal').addEventListener('submit', function() {
+        toggleModal('competitionModal');
+    });
+</script>
+
+<!-- NEW: Ensure modals are hidden on page load (unless flags trigger them) --> 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!document.body.contains(document.querySelector('#competitionSuccessModal.hidden')) && 
+            !{{ competition_submitted|yesno:"true,false" }}) {
+            document.getElementById('competitionSuccessModal').classList.add('hidden');
+        }
+        if (!document.body.contains(document.querySelector('#competitionFailureModal.hidden')) && 
+            !{{ competition_failed|yesno:"true,false" }}) {
+            document.getElementById('competitionFailureModal').classList.add('hidden');
+        }
+    });
+</script>
+
+
+
+</body>
+
+</html>
