@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
+import re
 
 phone_regex = RegexValidator( #Used to validate phone numbers 
     regex=r'^\+?1?\D*(\d\D*){10}$',
@@ -49,3 +51,48 @@ class CompetitionApplication(models.Model):
 
     def __str__(self):
         return f"Application: {self.full_name} - {self.get_competition_type_display()}"
+    
+
+class PortfolioHolding(models.Model):
+    """
+    Individual stock/ETF holding in the portfolio.
+    Manage through Django Admin - add/edit/delete as you buy/sell.
+    """
+    ticker = models.CharField(
+        max_length=10,
+        unique=True,
+        help_text="Stock ticker symbol (e.g., AAPL, MSFT, SPY)"
+    )
+    shares = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
+        help_text="Number of shares owned"
+    )
+    is_active = models.BooleanField(
+        default=True,
+        help_text="Uncheck to hide from portfolio without deleting"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Portfolio Holding"
+        verbose_name_plural = "Portfolio Holdings"
+        ordering = ['ticker']
+
+    def __str__(self):
+        return f"{self.ticker} ({self.shares} shares)"
+
+    def clean(self):
+        """Validate ticker format before saving"""
+        if self.ticker:
+            self.ticker = self.ticker.upper().strip()
+            if not re.match(r'^[A-Z0-9\-\.]+$', self.ticker):
+                raise ValidationError({
+                    'ticker': 'Ticker must contain only letters, numbers, hyphens, and periods'
+                })
+
+    def save(self, *args, **kwargs):
+        """Auto-uppercase ticker before saving"""
+        self.ticker = self.ticker.upper().strip()
+        super().save(*args, **kwargs)

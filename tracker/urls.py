@@ -10,4 +10,5 @@ urlpatterns = [
     path('annual_report.html', views.annual_report, name='annual_report'),
     path('contact/', views.contact, name='contact'),
     path("competition/apply/", views.competition_apply, name="competition_apply"),
+    path('api/portfolio/', views.portfolio_api, name='portfolio_api'),
 ]

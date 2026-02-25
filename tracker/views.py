@@ -4,6 +4,8 @@ from .forms import ContactForm, CompetitionApplicationForm
 from .models import CompetitionApplication
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import JsonResponse
+from .services import PortfolioService
 
 
 def home(request):
@@ -24,7 +26,7 @@ def college_fed(request):
 def annual_report(request):
     return render(request, 'annual_report.html', {})
 
-
+# CONTACT FORM
 @ratelimit(key='ip', rate='5/h', method='POST') # 5 submissions per hour per IP for Contact Forms
 def contact(request):
     if request.method == "POST":
@@ -45,6 +47,7 @@ def contact(request):
     return redirect("/")
 
 
+# COMPETITION APPLICATION
 @ratelimit(key='ip', rate='3/h', method='POST') # 3 submissions per hour per IP for Competition Applications
 def competition_apply(request):
     if request.method != "POST":
@@ -76,10 +79,6 @@ def competition_apply(request):
     application.competition_type = appli_form.cleaned_data["competition_type"]
     application.save()
 
-# DELETE - Debugging only
-    print(f"DEBUG - EMAIL_HOST_USER: {settings.EMAIL_HOST_USER}")
-    print(f"DEBUG - ADMIN_EMAIL: {settings.ADMIN_EMAIL}")
-    print(f"DEBUG - PASSWORD SET: {bool(settings.EMAIL_HOST_PASSWORD)}")
 
 
     # Email to admin
@@ -109,5 +108,24 @@ Description: {application.description}
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
-#  except Exception:
-#         request.session["competition_failed"] = True
+def portfolio_api(request):
+    """
+    API endpoint that returns portfolio data as JSON
+    Called by JavaScript on the frontend
+    """
+    service = PortfolioService()
+    
+    # Get portfolio data
+    portfolio_result = service.get_portfolio_data()
+
+    # Check if cache bypass is requested via query parameter
+    bypass_cache = request.GET.get('bypass_cache', 'false').lower() == 'true'
+
+    # Get portfolio data (bypass cache if requested)
+    portfolio_result = service.get_portfolio_data(use_cache=not bypass_cache)
+    
+    # Return JSON response
+    return JsonResponse({
+        'portfolio': portfolio_result,
+        'timestamp': portfolio_result.get('data', {}).get('last_updated') if portfolio_result.get('success') else None
+    })
