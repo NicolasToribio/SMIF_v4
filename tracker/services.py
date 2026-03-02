@@ -2,7 +2,7 @@
 # Based on yfinanceprototypev2.py, adapted to SMIF v4 by Claude
 import yfinance as yf
 import pandas as pd
-from datetime import datetime, timedelta
+from django.utils import timezone
 from django.core.cache import cache
 from django.conf import settings
 from .models import PortfolioHolding
@@ -77,7 +77,7 @@ class PortfolioService: # to fetch and calculate portfolio data
                 'data': {
                     'items': portfolio_items,
                     'total_value': round(total_value, 2),
-                    'last_updated': datetime.now().isoformat(),
+                    'last_updated': timezone.now().isoformat(),
                     'holdings_count': len(portfolio_items)
                 },
                 'error': None
