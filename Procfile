@@ -1,0 +1,1 @@
+web: gunicorn smifsite.wsgi --log-file -
