@@ -135,41 +135,71 @@
 
 <body class="bg-gray-100 text-gray-900 overflow-x-hidden">  <!-- overflow-x-hidden to prevent horizontal scrolling -->
 
-   <!-- Navbar -->
-<div class="fixed top-0 left-0 right-0 z-[70] bg-white p-3 text-black shadow-lg flex flex-wrap items-center justify-between">
+   <!-- Navbar (--nav-height set so mobile dropdown can sit just below it) -->
+<div id="navbar" class="fixed top-0 left-0 right-0 z-[70] bg-white text-black shadow-lg flex flex-wrap items-center justify-between p-3">
   <a href="{% url 'home' %}">
     <img src="{% static 'tracker/images/smiflogo.png' %}" height="150px" width="150px" alt="SMIF Logo">
   </a>
 
-  <nav class="p-1 space-x-6 flex items-center">
-    <!-- Competitions Dropdown -->
-    <div class="relative group inline-block">
-      <div class="flex items-center space-x-1 cursor-pointer">
-        <a class="topmenu font-semibold menu-hover">Competitions</a>
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="h-5 w-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-        </span>
-      </div>
-
-      <!-- Dropdown Menu -->
-      <div
-        class="invisible absolute z-50  w-32 flex-col bg-white py-1 px-4 text-gray-800 shadow-xl group-hover:visible rounded-lg">
-        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'game' %}">GAME</a>
-        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'cfa' %}">CFA</a>
-        <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'college_fed' %}">College Fed</a>
-      </div>
-    </div>
+  <!-- Desktop nav: hidden on mobile -->
+  <nav class="hidden md:flex p-1 space-x-6 items-center">
+    
 
     <!-- Other Nav Items -->
     <a class="topmenu font-semibold" href="{% url 'home' %}#tracker">Tracker</a>
     <a class="topmenu font-semibold" href="{% url 'annual_report' %}">Annual Report</a>
     <a class="topmenu font-semibold" href="{% url 'about' %}">About Us</a>
     <a class="topmenu font-semibold" href="{% url 'home' %}#officers">Officers</a>
+
+    <!-- Competitions Dropdown -->
+    <div class="relative group inline-block">
+        <div class="flex items-center space-x-1 cursor-pointer">
+          <a class="topmenu font-semibold menu-hover">Competitions</a>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </div>
+  
+        <!-- Dropdown Menu -->
+        <div
+          class="invisible absolute z-50  w-32 flex-col bg-white py-1 px-4 text-gray-800 shadow-xl group-hover:visible rounded-lg">
+          <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'game' %}">GAME</a>
+          <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'cfa' %}">CFA</a>
+          <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black" href="{% url 'college_fed' %}">College Fed</a>
+        </div>
+      </div>
   </nav>
+
+  <!-- Hamburger button: visible only on mobile -->
+  <button type="button" id="navMenuButton" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Toggle menu" aria-expanded="false">
+    <svg id="navMenuIconOpen" class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+    <svg id="navMenuIconClose" class="h-7 w-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
 </div>
+
+  <!-- Mobile menu dropdown: full-width below navbar, only on mobile -->
+  <div id="navMenuDropdown" class="hidden md:hidden fixed left-0 right-0 z-[60] bg-white shadow-xl border-t border-gray-200 max-h-[calc(100vh-10rem)] overflow-y-auto">
+    <nav class="flex flex-col py-2 px-3">
+      
+      
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'home' %}#tracker">Tracker</a>
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'annual_report' %}">Annual Report</a>
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'about' %}">About Us</a>
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'home' %}#officers">Officers</a>
+      <span class="text-gray-400 text-sm font-semibold uppercase tracking-wide px-3 py-2">Competitions</span>
+      <hr class="border-t-2 border-gray-200 mb-3">
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'game' %}">➤ GAME</a>
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'cfa' %}">➤ CFA</a>
+      <a class="topmenu font-semibold py-3 px-3 border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded" href="{% url 'college_fed' %}">➤ College Fed</a>
+    </nav>
+  </div>
 
 
 {% block content %}
@@ -429,6 +459,31 @@
         </script>
     {% endif %}
 
+
+<!-- Mobile nav menu toggle -->
+<script>
+    (function() {
+        var btn = document.getElementById('navMenuButton');
+        var dropdown = document.getElementById('navMenuDropdown');
+        var iconOpen = document.getElementById('navMenuIconOpen');
+        var iconClose = document.getElementById('navMenuIconClose');
+        var navbar = document.getElementById('navbar');
+
+        if (navbar && dropdown) {
+            dropdown.style.top = navbar.offsetHeight + 'px';
+        }
+
+        if (!btn || !dropdown) return;
+
+        btn.addEventListener('click', function() {
+            var isOpen = !dropdown.classList.contains('hidden');
+            dropdown.classList.toggle('hidden', isOpen);
+            if (iconOpen) iconOpen.classList.toggle('hidden', !isOpen);
+            if (iconClose) iconClose.classList.toggle('hidden', isOpen);
+            btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        });
+    })();
+</script>
 
 <!-- JavaScript Toggle for Modals -->
 <script>
