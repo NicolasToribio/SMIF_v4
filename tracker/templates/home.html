@@ -282,7 +282,7 @@
         <details class="text-2xl font-bold">
             <summary class="mb-4">Annual Report</summary>
         <div class="flex flex-wrap justify-center relative" style="padding-top: 56.25%;"> <!-- 16:9 ratio padding-top -->
-            <iframe src="{% static 'tracker/pdf/smif_notes.pdf'%}" class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[85vw] h-full" frameborder="0"></iframe>
+            <iframe src="{% static 'tracker/pdf/Trustee_Presentation_2025.pdf'%}" class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[85vw] h-full" frameborder="0"></iframe>
         </div>
         </details>
         
@@ -451,18 +451,35 @@ function updateInfoCard(portfolioData) {
 function createDonutChart(portfolioData) {
     const items = portfolioData.items;
     
+    const total = items.reduce((sum, item) => sum + item.value, 0);
+
     // Prepare data for Plotly
     const tickers = items.map(item => item.ticker);
     const values = items.map(item => item.value);
     const customdata = items.map(item => [item.price, item.shares]);
     
+    // Hide labels below 1.5% (adjust as needed)
+    const minPercent = 1.5;
+
+    const text = items.map(item => {
+    const percent = (item.value / total) * 100;
+    return percent < minPercent 
+        ? '' 
+        : `${item.ticker}<br>${percent.toFixed(1)}%`;
+    });
+
     const trace = {
         values: values,
         labels: tickers,
+        text: text,
         customdata: customdata,
         type: 'pie',
         hole: 0.5,
-        textinfo: 'label+percent',
+        textinfo: 'text',
+        textposition: 'inside',
+        textfont: {
+            size: 16
+        },
         hovertemplate: 
             '<b>%{label}</b><br>' +
             'Total Value: $%{value:,.2f}<br>' +
@@ -484,7 +501,12 @@ function createDonutChart(portfolioData) {
         showlegend: false,
         margin: {t: 10, b: 10, l: 10, r: 10},
         paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)'
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        hoverlabel: {
+            font: {
+                size: 18
+            }
+        },
     };
     
     const config = {
