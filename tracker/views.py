@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django_ratelimit.decorators import ratelimit
 from .forms import ContactForm, CompetitionApplicationForm
 from .models import CompetitionApplication
-from django.core.mail import send_mail
 from django.conf import settings
 from django.http import JsonResponse
 from .services import PortfolioService
+import resend
 
 
 def home(request):
@@ -81,29 +81,27 @@ def competition_apply(request):
 
 
 
-    # Email to admin
-    subject = f"SMIF Competition Submission: {application.full_name}"
-    message = f'''
-Name: {application.full_name}
-Email: {application.email}
-Competition: {application.get_competition_type_display()}
-Description: {application.description}
-        '''
+    # Email to admin via Resend
+    resend.api_key = settings.RESEND_API_KEY
+
     try:
-        send_mail(
-            subject=subject,
-            message=message, 
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.ADMIN_EMAIL],
-            fail_silently=False, # switch to True in production to suppress errors 
-        )
-        #Set one-time success flag
-        request.session["competition_submitted"] = True 
+        resend.Emails.send({
+            "from": "SMIF <applications@ausmif.com>",  # update after domain verification
+            "to": [settings.ADMIN_EMAIL],
+            "subject": f"SMIF Competition Submission: {application.full_name}",
+            "text": f"""
+    Name: {application.full_name}
+    Email: {application.email}
+    Competition: {application.get_competition_type_display()}
+    Description: {application.description}
+            """,
+        })
+        request.session["competition_submitted"] = True
 
     except Exception as e:
-        print(f"Email failed: {e}")
-        request.session["competition_failed"] = True
-        
+        print(f"Resend email failed: {e}")
+        request.session["competition_submitted"] = True  # Still show success — application was saved
+            
     # Redirect back to the page that opened the modal
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
