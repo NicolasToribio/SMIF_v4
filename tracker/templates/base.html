@@ -104,7 +104,7 @@
         background-color: white;
         color: black;
         border-radius: 15px;
-        
+
         position: absolute;
         left: -55px;
         top: 50%;
@@ -122,6 +122,11 @@
         transform: translateY(-50%);
     }
 
+    @media (max-width: 767px) {
+        .my-class-prev { left: 4px; }
+        .my-class-next { right: 4px; }
+    }
+
 
 
 
@@ -133,7 +138,7 @@
 
 
 
-<body class="bg-gray-100 text-gray-900 overflow-x-hidden">  <!-- overflow-x-hidden to prevent horizontal scrolling -->
+<body class="bg-gray-100 text-gray-900 overflow-x-hidden max-w-screen">  <!-- overflow-x-hidden + max-w-screen prevents horizontal scrolling on iOS Safari -->
 
    <!-- Navbar (--nav-height set so mobile dropdown can sit just below it) -->
 <div id="navbar" class="fixed top-0 left-0 right-0 z-[70] bg-white text-black shadow-lg flex flex-wrap items-center justify-between p-3">
@@ -210,10 +215,10 @@
  <!-- Footer -->
     <section id="footer" class="">
         <div class="bg-purpleBackground pb-4 w-full "> <!-- previously had pb-8 -->
-            <div class="flex flex-col sm:flex-row justify-around mx-auto mx-w-screen-xl items-center pt-6 mb-6"> <!-- items-center or items-end to control vertical alignment-->
+            <div class="flex flex-col md:flex-row justify-around mx-auto mx-w-screen-xl items-center pt-6 mb-6"> <!-- items-center or items-end to control vertical alignment-->
                 
                 <!-- Left -->
-                <div class="flex flex-col items-center sm:items-start w-[180px] sm:w-[220px] md:w-[260px]">
+                <div class="flex flex-col items-center md:items-start w-full md:w-[260px]">
                     <h2 class="text-4xl font-bold text-gray-100 mb-5 divide-y">
                         Student <br> Managed <br> Investment <br> Fund
                     </h2>
@@ -231,7 +236,7 @@
                 </div>
                 
                 <!-- Middle -->
-                <div class="w-[125px] sm:w-[150px] md:w-[200px]">
+                <div class="w-full md:w-[200px]">
                     <h3 class="text-2xl font-bold text-gray-100 text-center mb-1 ">Join Us!</h3>
                     <hr class="flex-grow border-t-2 border-gray-300 mb-3 border-t-2">
 
@@ -282,7 +287,7 @@
                 </div>
 
                 <!-- Right -->
-                <div class="w-[180px] sm:w-[220px] md:w-[260px]">
+                <div class="w-full md:w-[260px]">
                     
                     
                     
