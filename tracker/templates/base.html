@@ -218,27 +218,26 @@
             <div class="flex flex-col md:flex-row justify-around mx-auto mx-w-screen-xl items-center pt-6 mb-6"> <!-- items-center or items-end to control vertical alignment-->
                 
                 <!-- Left -->
-                <div class="flex flex-col items-center md:items-start w-full md:w-[260px]">
+                <div class="flex flex-col items-center md:items-start w-full max-w-[260px] md:w-[260px]">
                     <h2 class="text-4xl font-bold text-gray-100 mb-5 divide-y">
                         Student <br> Managed <br> Investment <br> Fund
                     </h2>
-                    <hr class="border-t-2 border-gray-300 mb-5 w-full"> <!-- Previously mb-3 -->
+                    <hr class="hidden md:block border-t-2 border-gray-300 mb-5 w-full">
 
-                    <div class="flex flex-row justify-center gap-4">
+                    <div class="hidden md:flex flex-row justify-center gap-4">
                         <a href="https://www.linkedin.com/in/maksymka-smirnov/" target="_blank">
-                            <img src="{% static 'tracker/images/linkedinlogowhite.png'%}" class="h-[30px] mx-auto"alt="LinkedIn Logo">
+                            <img src="{% static 'tracker/images/linkedinlogowhite.png'%}" class="h-[30px] mx-auto" alt="LinkedIn Logo">
                         </a>
-
                         <a href="https://www.instagram.com/smifau/" target="_blank">
-                            <img src="{% static 'tracker/images/instagramlogowhite.png'%}" class="h-[30px] mx-auto"alt="LinkedIn Logo">
+                            <img src="{% static 'tracker/images/instagramlogowhite.png'%}" class="h-[30px] mx-auto" alt="Instagram Logo">
                         </a>
                     </div>
                 </div>
                 
                 <!-- Middle -->
-                <div class="w-full md:w-[200px]">
+                <div class="w-full max-w-[260px] md:max-w-[200px] mx-auto md:mx-0 mt-6 md:mt-0">
                     <h3 class="text-2xl font-bold text-gray-100 text-center mb-1 ">Join Us!</h3>
-                    <hr class="flex-grow border-t-2 border-gray-300 mb-3 border-t-2">
+                    <hr class="w-full border-t-2 border-gray-300 mb-3">
 
                     <form method="post" action="{% url 'contact' %}"  id="join_us_form">
                         {% csrf_token %}
@@ -287,16 +286,13 @@
                 </div>
 
                 <!-- Right -->
-                <div class="w-full md:w-[260px]">
-                    
-                    
-                    
-                    <p class="block text-lg text-gray-200 mb-2 text-right">Olin College of Business</p>
-                    <p class="block text-lg text-gray-200 mb-2 text-right">1 Saxon Dr.</p>
-                    <p class="block text-lg text-gray-200 mb-2 text-right">Alfred, New York</p>
-                    <p class="block text-lg text-gray-200 mb-2 text-right">ms71@alfred.edu</p>
-                    <hr class="border-t-2 border-gray-300 mb-3 w-full"> <!-- Previously mb-3 -->
-                    <img src="{% static 'tracker/images/alfred-logo.svg' %}" alt="" height="250px" width="250px" class="mb-2 ml-auto">
+                <div class="w-full max-w-[260px] mx-auto md:mx-0 mt-6 md:mt-0">
+                    <p class="block text-lg text-gray-200 mb-2 text-center md:text-right">Olin College of Business</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-center md:text-right">1 Saxon Dr.</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-center md:text-right">Alfred, New York</p>
+                    <p class="block text-lg text-gray-200 mb-2 text-center md:text-right">ms71@alfred.edu</p>
+                    <hr class="border-t-2 border-gray-300 mb-3 w-full">
+                    <img src="{% static 'tracker/images/alfred-logo.svg' %}" alt="" height="250px" width="250px" class="mb-2 mx-auto md:ml-auto">
                     
                     
                 </div>
@@ -306,8 +302,8 @@
 
             </div>
             <div class="pl-10">
-                
-                
+
+
             </div>
 
         </div>
