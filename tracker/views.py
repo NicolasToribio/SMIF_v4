@@ -5,6 +5,7 @@ from .models import CompetitionApplication
 from django.conf import settings
 from django.http import JsonResponse
 from .services import PortfolioService
+from django.http import HttpResponse
 import resend
 
 
@@ -127,3 +128,14 @@ def portfolio_api(request):
         'portfolio': portfolio_result,
         'timestamp': portfolio_result.get('data', {}).get('last_updated') if portfolio_result.get('success') else None
     })
+
+# robots.txt to reduce scraping
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Disallow: /api/",
+        "Disallow: /contact/",
+        "Disallow: /competition/",
+        "Disallow: /admin/",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

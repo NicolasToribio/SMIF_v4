@@ -3,6 +3,7 @@ from . import views #we want to access teh views file from this file
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
     path('about.html', views.about, name="about"), #points to the about function in our views file
     path('game.html', views.game, name="game"),
     path('cfa.html', views.cfa, name='cfa'),
