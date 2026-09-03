@@ -8,6 +8,7 @@ from .services import PortfolioService
 from django.http import HttpResponse
 import resend
 
+resend.api_key = settings.RESEND_API_KEY
 
 def home(request):
     return render(request, 'home.html', {}) #we render the home page whenever the user sends a request to access the site 
@@ -27,24 +28,27 @@ def college_fed(request):
 def annual_report(request):
     return render(request, 'annual_report.html', {})
 
-# CONTACT FORM
-@ratelimit(key='ip', rate='5/h', method='POST') # 5 submissions per hour per IP for Contact Forms
+# CONTACT FORM - now sends to email instead of just adding contacts to the database
+@ratelimit(key='ip', rate='5/h', method='POST')
 def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
-
         if form.is_valid():
             form.save()
 
-            # Phase 1: email sending will go here later
+            try:
+                resend.Emails.send({
+                    "from": "SMIF <applications@ausmif.com>",
+                    "to": [settings.ADMIN_EMAIL],
+                    "subject": f"SMIF Contact: {form.cleaned_data['full_name']}",
+                    "text": f"Name: {form.cleaned_data['full_name']}\nEmail: {form.cleaned_data['au_email']}\nPhone: {form.cleaned_data['phone_num']}",
+                })
+            except Exception as e:
+                print(f"Contact email failed: {e}")
 
-            #Set one-time success flag
-            request.session["contact_submitted"] = True 
-            
-
-            # Re-render the page the user came from
+            request.session["contact_submitted"] = True
             return redirect(request.META.get("HTTP_REFERER", "/"))
-        
+
     return redirect("/")
 
 
@@ -81,9 +85,6 @@ def competition_apply(request):
     application.save()
 
 
-
-    # Email to admin via Resend
-    resend.api_key = settings.RESEND_API_KEY
 
     try:
         resend.Emails.send({
